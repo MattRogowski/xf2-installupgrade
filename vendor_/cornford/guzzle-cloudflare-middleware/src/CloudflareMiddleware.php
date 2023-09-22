@@ -64,7 +64,7 @@ class CloudflareMiddleware
         return $next($request, $options)
             ->then(
                 function (ResponseInterface $response) use ($request, $options) {
-                    return $this->checkResponse($request, $options, $response);
+                    return $this->checkResponse($request, $response, $options);
                 }
             );
     }
@@ -77,7 +77,7 @@ class CloudflareMiddleware
      * @return \Psr\Http\Message\RequestInterface|\Psr\Http\Message\ResponseInterface
      * @throws \Exception
      */
-    protected function checkResponse(RequestInterface $request, array $options = [], ResponseInterface $response)
+    protected function checkResponse(RequestInterface $request, ResponseInterface $response, array $options = [])
     {
         if (!$this->needVerification($response)) {
             return $response;
