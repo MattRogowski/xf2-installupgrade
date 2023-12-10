@@ -10,7 +10,10 @@
     "repositories": [
         {
             "type": "path",
-            "url": "vendor_/cornford/guzzle-cloudflare-middleware"
+            "url": "vendor_/cornford/guzzle-cloudflare-middleware",
+            "options": {
+                "symlink": false
+            }
         }
     ]
 }
